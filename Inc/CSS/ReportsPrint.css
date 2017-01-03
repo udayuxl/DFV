@@ -1,0 +1,29 @@
+﻿* 
+{	
+	font-family:Verdana;		
+	font-size:12px;
+}
+
+html 
+{
+	background-color:#fff;	
+	padding-bottom:20px;
+}
+
+body 
+{
+	color:#fff;
+	margin:0 auto;
+	width:960px;
+	position:relative;
+	font-size:12px;
+}
+
+div.header, .Breadcrumb, .LoggedInTemplate, .TopNavigation, .leftcolumn, .report-section, .Footer, .mGrid .pgr {display:none;}
+
+.Container {border:solid 0px #fff;}
+.content {width:960px;}
+/*.Heading {position:relative; top:-100px;left:-20px;}*/
+.mGrid {width:950px; border: solid 1px #000;}
+.mGrid {color: #000; }
+.mGrid td, .mGrid th {border: solid 1px #000;}

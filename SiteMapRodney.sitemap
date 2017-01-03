@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+<siteMapNode url="Container" title="" Visible="false">
+  <siteMapNode url="~/Home.aspx" title="Home" description="">      
+      
+    <siteMapNode title="Open Programs" url="~/Order/OpenPrograms.aspx" allowedroles="Admin,RSM,DM,SVP,DVP,SM" menu="top" />            
+    <siteMapNode title="Seasonal Order Status" url="~/Order/MyOrders.aspx" allowedroles="Admin,RSM,DM,SVP,DVP,SM" menu="top" />
+    
+    <siteMapNode title="Place Inventory Orders" url="~/Order/AddressBook.aspx?mode=inventory" allowedroles="Admin,DVP,RDM,SM,RSM" menu="top" />
+    <siteMapNode title="Inventory Order Status" url="~/Order/MyInventoryOrders.aspx" allowedroles="Admin,DVP,RDM,SM,RSM" menu="top" />
+
+
+    <!--<siteMapNode menu="top" title="Allocate Budget" url="~/Admin/AllocateBudget.aspx" description="" visible="false" allowedroles="Admin,DVP,SVP,DM,SM"/>-->
+	  
+      
+    <siteMapNode menu="top" title="Reports" url="~/Reports/ReportsHome.aspx" visible="true">
+        <siteMapNode menu="left" title="Program Playbook" url="~/Reports/ProgramPlayBook.aspx" />
+        <siteMapNode menu="left" title="Order Recap" url="~/Reports/Pre-OrderRecap.aspx" allowedroles="Admin,MM,SM"/>        
+        <siteMapNode menu="left" title="Budget Allocation" url="~/Reports/BudgetAllocation.aspx" visible="true"/>
+
+		<siteMapNode menu="left" title="Program Order Summary" url="~/Reports/ProgramOrderDetails.aspx" visible="true"  allowedroles="Admin,MM"/>
+		<siteMapNode menu="left" title="Program Order Drop Shiplist" url="~/Reports/DropShipList.aspx" allowedroles="Admin" manageronly="true" visible="true"/>
+		
+		<siteMapNode menu="left" title="Inventory Order Recap" url="~/Reports/InventoryOrderRecap.aspx" visible="true" allowedroles="Admin,MM,SM"/>
+		<siteMapNode menu="left" title="Inventory Report" url="~/Reports/InventoryReport.aspx" allowedroles="Admin,MM"/>
+        <siteMapNode menu="left" title="Shipped Inventory Order Recap" url="~/Reports/ShippedInventoryOrderRecap.aspx" visible="true" allowedroles="Admin,MM,SM"/>
+		
+        <siteMapNode allowedroles="Admin" menu="left" url="~/Reports/POSOrderWindowSummary.aspx" title="POS Summary Order Window"  description="" visible="false"/>
+        <siteMapNode allowedroles="Admin" menu="left" url="~/Reports/Pre-OrderRecapByDivision.aspx" title="Order Recap by division"  description="" visible="false"/>                
+    </siteMapNode>
+          
+    <siteMapNode menu="top" title="Help" url="~/HelpPages/Help.aspx" description="" visible="false">
+      <siteMapNode menu="left" title="User Guide" url="~/Inc/Files/DFVWines_UserGuide.pptx" description="" Showtitle="false"/>        
+      <siteMapNode menu="left" title="Play Book (PDF)" url="~/Inc/Files/ProgramPlaybook.pdf" description="" Showtitle="false"/>
+      <siteMapNode menu="left" title="Play Book (Excel)" url="~/Inc/Files/ProgramPlaybook.xls" description="" Showtitle="false"/>        
+    </siteMapNode>
+                  
+    <siteMapNode menu="top" title="Admin" url="~/Admin/AdminLandingPage.aspx" description="" visible="false" allowedroles="Admin,UXL,MM">
+      <siteMapNode menu="left" title="POS Items" url="~/Admin/POS_Items.aspx" description="" roles="Admin" allowedroles="Admin,UXL"/>
+      <siteMapNode menu="left" title="Program Setup" url="~/Admin/ProgramSetup.aspx" description="" allowedroles="Admin,UXL"/>
+      <siteMapNode menu="left" title="Brands" url="~/Admin/Brands.aspx" description="" allowedroles="Admin,UXL"/>
+		<siteMapNode menu="left" title="Allocate Budget" url="~/Admin/AllocateBudget.aspx" description="" allowedroles="Admin,UXL,MM,SM,Level1" />
+      <siteMapNode menu="left" title="Manage Designations" url="~/Admin/Level1Designation.aspx" description="" allowedroles="Admin,UXL"/>
+      <!---
+      <siteMapNode menu="left" title="Manage Designations L2" url="~/Admin/Level2Designation.aspx" description="" visible="false"/>
+      <siteMapNode menu="left" title="Manage Designations L3" url="~/Admin/Level3Designation.aspx" description="" visible="false"/>
+      - -->
+      <siteMapNode menu="left" title="Manage Users" url="~/Admin/ManageUsers.aspx" description="" allowedroles="Admin,UXL" />
+      <siteMapNode menu="left" title="Order Approval" url="~/Admin/OrderApproval.aspx" description="" allowedroles="Admin,UXL,MM" />    
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMapNode>
+</siteMap>

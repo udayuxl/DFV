@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LumenNoLeft.master.cs" Inherits="EmergeNoLeft" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title><asp:ContentPlaceHolder ID="PageTitleTag" runat="server">Delicato Seasonal Ordering</asp:ContentPlaceHolder></title>
+    <link runat="server" href="~/Inc/CSS/Style.css?v=mar25" rel="Stylesheet" type="text/css" />
+    <link runat="server" href="~/Inc/CSS/ReportsPrint.css" rel="Stylesheet" media="print" type="text/css" />
+    <!--[if lte IE 6]>
+    <link runat="server" href="~/Inc/CSS/IE.css" rel="Stylesheet" type="text/css" />
+    <![endif]-->
+    <asp:Literal ID="ConditionalCSS" runat="server"></asp:Literal>   
+    <asp:Literal ID="lit_DA_JQuery" runat="server"></asp:Literal>    
+    <asp:ContentPlaceHolder runat="server" ID="cphHead"></asp:ContentPlaceHolder>
+    <style type="text/css"> 
+        div.Breadcrumb a{font-weight:bold;color:#ED017F;}
+    </style>
+    <asp:ContentPlaceHolder ID="HtmlHead" runat="server">        
+   </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="frmEmerge" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" LoadScriptsBeforeUI="false">
+
+        </asp:ScriptManager>
+        <div class="messagebox" style="position:fixed;border:3px solid maroon;background:#CCCCCC;padding:10px;top:250px;left:315px !important;display:none;"><div></div></div>
+        <%--MasterContent:Start--%>
+        <div class="Header"> 
+            <Lumen:Header ID="Header" runat="server" />
+                       
+            <div id="divBreadcrumb" class="Breadcrumb" runat="server" style="width:340px;display:none">                
+            </div>
+
+            <div style="float:right;display:none">
+                <asp:LoginView ID="LoginViewEmerge" runat="server">
+                    <LoggedInTemplate>
+                        <div class="LoggedInTemplate" style="width:600px">
+                            Welcome
+                            <b><asp:LoginName ID="litUserName" runat="server" /></b>                        
+                            |
+                                <i><asp:HyperLink NavigateUrl="~/HelpPages/HelpDesk.aspx"  runat="server" ID="lnkHelpDesk" Text="Help Desk"  /></i>
+                            |
+                                <i><asp:HyperLink NavigateUrl="~/HelpPages/HelpDesk.aspx?page=list"  runat="server" ID="lnkMyCases" Text="My Cases"  /></i>
+                            |
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        </div>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            
+            <div class="TopNavigation">
+                <Lumen:TopMenu StartingNodeURL="~/Home.aspx" ShowStartingNode="true" ID="TopMenu1" runat="server" />                
+            </div>
+        </div>
+        <div id="Div1" class="Container" runat="server">                                    
+            <div class="Content" style="width:960px;">
+                <div class="header">                                
+                    <h2>
+                        <asp:ContentPlaceHolder ID="Title" runat="server" ></asp:ContentPlaceHolder>                        
+                    </h2>                    
+                </div>
+                <div style="clear:both"></div>
+                <asp:ContentPlaceHolder ID="cphMain" runat="server" />
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+            <div class="Footer">
+                <Lumen:Footer ID="Footer1" runat="server" />
+            </div>
+        </asp:ContentPlaceHolder>   
+    </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="Head1" runat="server">
+        <title>Emerge - Online POS - Login</title>
+        <link id="Link1" runat="server" href="~/Inc/CSS/Style.css?v=1" rel="Stylesheet" type="text/css" />
+		<!--[if IE]>
+			<link runat="server" href="~/Inc/CSS/IE.css" rel="Stylesheet" type="text/css" />
+		<![endif]-->
+		<asp:Literal ID="ConditionalCSS" runat="server"></asp:Literal>
+    </head>
+    <body>        
+        <form id="form1" runat="server">
+            <div id="Div1" class="LoginContent" runat="server">
+                <div style="">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Inc/Images/MasterPage/Logo.jpg" />                
+                </div>
+                <div class="Login">
+                    <div style="float:left;margin-top:75px;">
+                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Inc/Images/MasterPage/Wines500.png" />
+                    </div>
+                    <div style="float:left">
+                        <asp:Login ID="EmergeLogin" runat="server" CssClass="LoginLayout" 
+                            onauthenticate="EmergeLogin_Authenticate" >
+                            <LayoutTemplate>                            
+                                    <h2>SIGN IN</h2>
+                                    <asp:Literal ID="FailureText" runat="server"/>
+                                    <div style="font-weight:bold">
+                                        EMAIL:<em>*</em>
+                                        <asp:TextBox ID="UserName" CssClass="LoginLayoutTextbox" runat="server"/>
+                                    </div>
+                                    <div style="font-weight:bold">
+                                        PASSWORD:<em>*</em>
+                                        <asp:TextBox ID="Password" CssClass="LoginLayoutTextbox" TextMode="Password" runat="server"/>
+                                    </div>                                
+                                    <div style="text-align:right">
+                                        <em>*</em><span style="margin-right:50px;">REQUIRED</span>
+                                        <asp:CheckBox ID="RememberMe" Text="REMEMBER ME" Visible="true" runat="server" />
+                                    </div>
+                                    <div class="bottompadding10" >
+									    <a class="topmargin10" href="ForgotPassword.aspx"><b>Forgot Password</b></a>
+                                        <asp:Button ID="Login" Text="Login" CssClass="LoginLayoutButton" CommandName="Login" runat="server" />
+                                    </div>
+                            </LayoutTemplate>
+                        </asp:Login>
+                    </div>
+                    <%--<div class="logintermsandconditions">
+                    <asp:HyperLink NavigateUrl="~/TermsAndConditions.aspx" runat="server" ID="lnkbtnTermsAndConditions" Text="TERMS AND CONDITIONS" /></a>
+                    </div>
+                    <div class="logindrinkiq">
+                    <asp:HyperLink NavigateUrl="http://www.drinkiq.com" Target="_blank" runat="server" ID="lnkbtnDrinkIQ" Text="DRINKiQ" /></a>
+                    </div>--%>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

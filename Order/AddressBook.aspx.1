@@ -1,0 +1,263 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LumenNoLeft.master" AutoEventWireup="true" CodeFile="AddressBook.aspx.cs" Inherits="Order_AddressBook" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="PageTitleTag" Runat="Server">Emerge - Online POS - Address Book</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HtmlHead" Runat="Server">
+    <!-- Page Specific Script and Style-->
+    <style>
+        div.FieldLabel {width:125px;}
+        div.FieldControl {width:190px;padding-left:5px;}
+        .readonly {border:1px solid gray;background:silver;color:#555; padding:2px}
+    </style>
+    <script type="text/jscript" language="javascript">
+
+        function PopupPageLoad() {
+            $('input#popTxtCity').keyup(PopulateDestinationCode);
+            $('input#popTxtShipToName').keyup(PopulateDestinationCode);
+            $('input#popTxtShipToCompany').keyup(PopulateDestinationCode);                 
+        }
+        
+        function PopulateDestinationCode() {
+            var shipToCompany = $("input#popTxtShipToCompany").val();
+            var shipToName = $("input#popTxtShipToName").val();            
+            var city = $("input#popTxtCity").val();
+
+            var destination = shipToName + "-" + city;
+            if (destination == "-") destination = "(Auto Filled)";
+            $("input#popTxtDestinationCode").val(destination);
+
+            
+        }
+
+        
+    </script>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="Title" Runat="Server">
+    <h2>Shipping Addresses</h2>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="cphMain" Runat="Server">
+    <div class="GridButtons" style="width:900px;height:40px;border-bottom:1px solid gray;" runat="server" id="divProceedToOrder">
+        <asp:Button CssClass="FloatRight" OnClick="Proceed" ID="btnProceed" runat="server" Text="Proceed with selected Addresses" />            
+        <span class="FloatRight" style="color:red;width:450px"><b>Note:</b> You will be able to place orders for the selected addresses only. <br />Please take a moment to select the addresses and proceed.</span>
+    </div>
+    <div style="clear:both;"> </div>
+    <div class="GridButtons" style="display:none">              
+        <div style="float:left;padding-left:10px;width:200px"  runat="server" id="divAddBtn" visible="false">
+            <asp:Button ID="Button2" runat="server" Text="Add New" OnClick="Add" />            
+        </div>
+        
+        <div style="float:left;padding-left:20px;display:none;"> 
+            <asp:TextBox ID="txtSearch" CssClass="searchtext placeholder" runat="server" Width="375px" placeholdertext="Enter Ship to Name, Ship to Company or City to search" Text="Enter Ship to Name, Ship to Company or City to search"/>
+            <asp:Button ID="btnSearch" OnClick="Search" runat="server" Text="Search" CssClass="button" style="padding-bottom:2px;"  />
+        </div>
+    </div>
+    <div style="clear:both;margin-bottom:10px"> </div>
+    <!-- ######### GRID ############################# -->
+    <div>
+        <asp:GridView ID="gridAddressBook" runat="server"
+            AllowSorting="true" 
+            PageSize="100"     
+            AutoGenerateColumns="False"
+            GridLines="None"            
+            CssClass="mGrid"                        
+            AlternatingRowStyle-CssClass="alt"
+            OnRowDataBound = "gridAddressBook_RowDataBound"            
+            OnSorting="gridAddressBook_Sorting"
+            OnRowEditing="gridAddressBook_RowEditing"
+            EmptyDataText="There are no records.">
+        <Columns>
+            <asp:TemplateField SortExpression="Active" HeaderText="Select" ItemStyle-HorizontalAlign="Center">                
+                <HeaderTemplate>
+                    <asp:CheckBox ID="chkSelectAll" Text="" runat="server" OnCheckedChanged="SelectDeselectAll" AutoPostBack="true"/>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <asp:CheckBox ID="chkSelect" Text="" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+                        
+            <asp:TemplateField SortExpression="LocationName" HeaderText="Destination Code" Visible="true">
+                <ItemTemplate>
+                    <asp:Literal ID="litLocationName" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField SortExpression="ShipToName" HeaderText="Ship To Name">
+                <ItemTemplate>
+                    <asp:Literal ID="litShipToName" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField SortExpression="ShipToCode" HeaderText="Ship To Company" > 
+                <ItemTemplate>
+                    <asp:Literal ID="litShipToCompany" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField SortExpression="City" HeaderText="City" ItemStyle-HorizontalAlign="Center" >
+                <ItemTemplate>
+                    <asp:Literal ID="litCity" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField SortExpression="State" HeaderText="State" ItemStyle-HorizontalAlign="Center" >
+                <ItemTemplate>
+                    <asp:Literal ID="litState" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField SortExpression="Address1" HeaderText="Address" >
+                <ItemTemplate>
+                    <asp:Literal ID="litPhone" Text="" runat="server" Visible="false"/>
+                    <asp:Literal ID="litFax" Text="" runat="server" Visible="false"/>
+                    <asp:Literal ID="litEmail" Text="" runat="server" Visible="false"/>
+                    <asp:Label runat="server" ID="lblAddress"/>
+
+                    <asp:HiddenField ID="hdnAddressId" runat="server" />
+                    <asp:HiddenField ID="hdnAddress1" runat="server" />
+                    <asp:HiddenField ID="hdnAddress2" runat="server" />
+                    <asp:HiddenField ID="hdnStreet" runat="server" />
+                    <asp:HiddenField ID="hdnCity" runat="server" />
+                    <asp:HiddenField ID="hdnState" runat="server" />
+                    <asp:HiddenField ID="hdnAddressType" runat="server" />
+                    <asp:HiddenField ID="hdnCountry" runat="server" />
+                    <asp:HiddenField ID="hdnShippingId" runat="server" />
+                    <asp:HiddenField ID="hdnZip" runat="server" />
+                    <asp:HiddenField ID="hdnAddressStatus" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:TemplateField SortExpression="CostCenterName" HeaderText="Division" Visible="false" > 
+                <ItemTemplate>
+                    <asp:Literal ID="litCostCenter" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField Visible="false"  HeaderText = "Shipping Instruction" > 
+                <ItemTemplate>
+                   <asp:DropDownList ID= "ddlShipInstr" runat= "server" style="width:150px;font-family: Verdana; color: #717171;padding: 2px;font-size: 12px;" ></asp:DropDownList>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:TemplateField HeaderText="Edit" ItemStyle-HorizontalAlign="Center" Visible="false">
+                <ItemTemplate>
+                    <asp:ImageButton ID="imgBtnEdit" ImageUrl="~/Inc/Images/Others/Edit.gif" OnClick="Edit" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>            
+            <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center" Visible="false">
+                <ItemTemplate>
+                    <asp:ImageButton ID="imgBtnDelete" ImageUrl="~/Inc/Images/Others/Delete.gif" runat="server" OnClick="Delete" OnClientClick="return confirm('Are you sure you want to delete this record?');" />
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField SortExpression="AddressTypename" HeaderText="Address <br/>Type" Visible="false"> <%-- Column Hidden --%>
+                <ItemTemplate>
+                    <asp:Literal ID="litAddressType" Text="" runat="server"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+        </Columns>
+    </asp:GridView>
+    </div>
+    <!-- ############################################ -->
+
+
+    <!-- ********** ADD/EDIT POPUP ****************** -->
+    <div class="AcePopup" id="editform" style="width:750px">
+        <asp:TextBox CssClass="ID" Text="" runat="server" ID="popAddEditID"/>        
+        <div style=" margin:0px -10px 0px -10px;">
+            <h2 class="popupheader">Add/Edit Shipping Address</h2>
+            <div style="position:absolute;top:5px;right:10px;">
+               <b> <asp:LinkButton ID="LinkButton1" Text="X" runat="server" OnClick="Cancel"></asp:LinkButton></b>
+            </div>
+        </div>
+        
+        <div style="color:Maroon;">Fields marked with * are mandatory</div><br />
+        <div style="color:Red;font-weight:bold">            
+            <asp:Literal runat="server" ID="litValidationError"></asp:Literal>            
+        </div>
+        <br />                  
+
+        <table style="margin-left:20px;" border="0">
+            <tr>
+                <td style="width:350px;">                    
+                    <div class="FieldLabel">Ship To Name <b style="color:Red">*</b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtShipToName" ClientIDMode="Static" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+                <td style="width:350px;">                    
+                    <div class="FieldLabel">Ship To Company <b style="color:Red">*</b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtShipToCompany" ClientIDMode="Static" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+            </tr>
+            <tr>
+                <td style="width:250px;">                    
+                    <div class="FieldLabel">Address 1<b style="color:Red">*</b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtAddress1" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+                <td style="width:250px;">                    
+                    <div class="FieldLabel">Address 2 <b style="color:Red"></b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtAddress2" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="FieldLabel">City<b style="color:Red">*</b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtCity" ClientIDMode="Static" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+                <td>
+                    <div class="FieldLabel">Destination Code<b style="color:Red"></b> </div>
+                    <div class="FieldControl">                        
+                        <asp:TextBox ID="popTxtDestinationCode" ClientIDMode="Static" Text="(Auto Filled)" CssClass="readonly" runat="server" Width="170px" ></asp:TextBox>
+                    </div>                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="FieldLabel">State<b style="color:Red">*</b> </div>
+                    <div class="FieldControl">
+                        <asp:DropDownList ID="popDdlState" runat="server">
+                            <asp:ListItem Text="Select"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>                    
+                </td>
+                <td>
+                    <div class="FieldLabel">ZIP<b style="color:Red"></b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtZIP" CssClass="numericvalidation" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="FieldLabel">Phone<b style="color:Red">*</b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtPhone" runat="server"></asp:TextBox></div>                    
+                </td>
+                <td>
+                    <div class="FieldLabel">Email<b style="color:Red"></b> </div>
+                    <div class="FieldControl"><asp:TextBox ID="popTxtEmail" runat="server" Width="170px" ></asp:TextBox></div>                    
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td>
+                    <div class="FieldLabel">Division<b style="color:Red">*</b> </div>
+                    <div class="FieldControl">                        
+                        <asp:DropDownList ID="popDdlRegion" runat="server">
+                        </asp:DropDownList>
+                    </div>                    
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td style="padding-left:20px">                    
+                    <asp:CheckBox Text="Active" runat="server" ID="PopChkActive" Checked="true" />
+                </td>
+                <td style="width:250px;" align="right">                    
+                    <asp:Button Text="Save" runat="server" OnClick="Save"/>                  
+                    <asp:Button Text="Cancel" OnClick="Cancel" runat="server" />                  
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ########## Jquery Triggers ################## -->
+    <div class="jquerytriggers" style="display:none">
+        <asp:TextBox ID="failuremsg" CssClass="failuremsg" runat="server"></asp:TextBox>
+        <asp:TextBox ID="successmsg" CssClass="successmsg" runat="server"></asp:TextBox>
+   </div>
+   <!-- ############################################# -->
+    
+</asp:Content>
+

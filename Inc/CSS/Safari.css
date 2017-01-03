@@ -1,0 +1,289 @@
+﻿.leftcolumn h2 
+{
+	padding-top:10px;	
+	margin-bottom:0px;
+	
+}
+
+.leftcolumn #divleftmenu
+{
+	position:relative;
+	top:-20px;
+	height:auto;
+}
+#divleftmenu{margin-top:30px;}
+
+.leftcolumn ul 
+{
+	margin-bottom:0px;
+	padding-top:0px;
+	margin-top:10px;
+	margin-left:0px;	
+}
+
+.leftcolumn ul li 
+{
+	padding-left:0px;		
+}
+
+.leftcolumn ul li ul
+{
+	margin-top:5px;
+	padding-top:0px;
+	padding-left:10px;
+	margin-bottom:5px;
+}
+
+.confirm-preorder-buttons {margin-left:2px;}
+
+div.header
+{
+	margin-top:5px;
+	background:#B7A521;		
+	width: 790px;
+	float: left;
+	font-weight:bold;    
+}
+
+div.header div.headerleft
+{
+	float:left;		
+	padding-left:10px;
+	padding-top:20px;
+}
+
+div.header div.headerleft h2
+{
+	font-size:16px;
+	font-family:Arial;	
+	color:#560000;
+	width:380px;	
+}
+
+div.header div.headerlefthelp
+{
+	float:left;		
+	padding-left:10px;
+	padding-top:20px;
+}
+
+div.header div.headerlefthelp h2
+{
+	font-size:16px;
+	font-family:Arial;	
+	color:#560000;
+	width:700px;	
+}
+
+div.headerright
+{
+	border-left:1px solid #560000;
+	float:right;	
+	width:270px;	
+	font-weight:bold;
+	color:#560000;		
+	padding-left:5px;	
+}
+
+.termsandconditions
+{
+	margin-left:50px;
+	margin-right:50px;
+	margin-top:20px;
+}
+
+
+.Login
+{
+	background-image:url(../Images/MasterPage/Login2.jpg);
+	background-repeat:no-repeat;
+	height:664px;
+	width:960px;
+	/*margin-left:86px; 
+	padding-top:10px;*/
+}
+
+table.LoginLayout
+{
+	background: none repeat scroll 0 0 #FFF0C1;
+    color: #620937;
+    margin-left: 620px;
+    margin-top: 180px;
+    width: 320px;
+    position: absolute;	
+}
+
+table.LoginLayout td
+{
+	 border: 2px solid #CB7C17;
+     padding : 10px;
+}
+
+table.LoginLayout td h2 
+{
+	background:#f1d595;
+	padding:5px;
+	margin:0px;
+	font-family:Arial;
+	font-size:14px;
+}
+
+table.LoginLayout div
+{
+	
+	width:295px;
+	margin-top:15px;	
+	margin-bottom:10px;	
+	margin-left:10px;
+}
+
+table.LoginLayout div.error
+{
+	color:red;
+	font-weight:bold;
+}
+
+
+
+.LoginLayoutTextbox
+{
+	float:right;
+	width:190px;
+	height:15px;
+	
+}
+
+.TopNavigationDummy
+{
+	background-image:url(../Images/MasterPage/TopNavBG.jpg);
+	height:42px;
+	width:960px;
+}
+
+.LoginLayoutButton
+{
+	position:relative;
+	left:90px;
+}
+
+.logintermsandconditions
+{
+	padding-left:10px;
+	padding-top:130px;	
+	font-weight:bold;
+}
+
+.report-section
+{
+	margin-top:0px;
+	margin-left:10px;
+}
+.report-section .button
+{
+	padding-top:3px;	
+}
+
+.TopNavigation
+{
+	background-image:url(../Images/MasterPage/bg-nav-item.png);
+	/*padding-left:284px;
+	height:42px;*/
+}
+
+.TopNavigation a
+{	
+	color:White;
+	font-weight:bold;
+}
+
+.TopNavigation td
+{
+	/*padding-left:2px;
+	padding-right:2px;*/
+	padding:10px;
+}
+
+.TopNavigation span
+{	
+	position:relative;
+	top:-15px;	
+}
+
+.Breadcrumb
+{
+	color:#B7A521;
+	/*color:#606080;*/
+	background-color:#620937;
+	float:left;
+	font-size:small;
+	height:20px;
+	padding-left:10px;
+	padding-top:10px;
+	width:470;
+	/*
+	*/
+}
+
+.Breadcrumb a:link, a:visited, a:active
+{
+	/*
+	*/
+}
+.LoggedInTemplate
+{
+	text-align:right;
+	color:#B7A521;
+	background-color:#620937;
+	float:right;
+	height:20px;
+	padding-right:10px;
+	padding-top:10px;
+	width:400px;		
+}
+
+.LoggedInTemplate a
+{
+	font-weight:bold;
+	text-decoration:none;
+	color:#B7A521;
+}
+
+.leftcolumn h2
+{
+	background:#620937;
+	color:white;
+	font-size:1.1em;
+	padding-left:5px;	
+}
+
+.leftcolumn ul 
+{
+	list-style-position:inside;
+	padding-left:0px;	
+}
+
+.leftcolumn ul li
+{
+	list-style-type:none;
+	/*list-style-image:url("../Images/MasterPage/plus.jpg");*/
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	border-bottom:1px solid #C80752;
+}
+
+.leftcolumn ul li a
+{
+	background-repeat:no-repeat;
+	background-position:0px 4px;
+	padding-left:0px;
+	color:White;
+	font-weight:bold;		
+	text-decoration:none;
+	color:white;
+}
+
+.leftcolumn ul li a.expandable
+{
+	background-image:url("../Images/MasterPage/plus.jpg");
+}

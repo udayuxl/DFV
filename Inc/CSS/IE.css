@@ -1,0 +1,139 @@
+﻿.leftcolumn h2 
+{
+	padding-top:10px;	
+	margin-bottom:0px;
+}
+
+.leftcolumn #divleftmenu
+{
+	position:relative;
+	top:-20px;
+	height:auto;
+}
+
+#divleftmenu{margin-top:30px;}
+.leftcolumn ul 
+{
+	margin-bottom:0px;
+	padding-top:0px;
+	margin-top:10px;
+	margin-left:0px;	
+}
+
+.leftcolumn ul li 
+{
+	padding-left:10px;		
+}
+
+.leftcolumn ul li ul
+{
+	margin-top:5px;
+	padding-top:0px;
+	padding-left:10px;
+	margin-bottom:5px;
+}
+
+.confirm-preorder-buttons {margin-left:2px;}
+
+div.header
+{
+	margin-top:5px;
+	background:#CCCCCC;		
+	width: 790px;
+	float: left;
+	font-weight:bold;    
+}
+
+div.header div.headerleft
+{
+	float:left;		
+	padding-left:10px;
+	padding-top:20px;
+}
+
+div.header div.headerleft h2
+{
+	font-size:16px;
+	font-family:Arial;	
+	color:#2060A0;
+	width:380px;	
+}
+
+div.header div.headerlefthelp
+{
+	float:left;		
+	padding-left:10px;
+	padding-top:20px;
+}
+
+div.header div.headerlefthelp h2
+{
+	font-size:16px;
+	font-family:Arial;	
+	color:#2060A0;
+	width:700px;	
+}
+
+div.headerright
+{
+	border-left:1px solid #560000;
+	float:right;	
+	width:270px;	
+	font-weight:bold;
+	color:#560000;		
+	padding-left:5px;	
+}
+
+.termsandconditions
+{
+	margin-left:50px;
+	margin-right:50px;
+	margin-top:20px;
+}
+
+
+
+.TopNavigationDummy
+{
+	background-image:url(../Images/MasterPage/TopNavBG.jpg);
+	height:42px;
+	width:960px;
+}
+
+
+
+
+
+.report-section
+{
+	margin-top:0px;
+	margin-left:10px;
+}
+.report-section .button
+{
+	padding-top:3px;	
+}
+
+/* CSS for Add Item popup*/
+#IEItemname{margin-left:70px;margin-top:-15px;}
+#IEbrand{margin-top:20px;}
+#IElbldemension{margin-right:40px;}
+#IEtxtdimension{margin-left:-33px !important;}
+#IElblpack{margin-right:80px;}
+#IEtxtpack{margin-left:-55px !important;}
+#IElblprice{margin-right:60px !important;}
+#IEtxtprice{margin-left:-16px !important;}
+
+
+#IEtxtname{margin-left:100px;margin-top:-15px;}
+#IElblclosedate{margin-right:75px;}
+#IEtxtclosedate{margin-left:-55px !important;}
+
+
+
+.dshbrdhomeHyperLinktext
+{
+   
+    font-size:12px;
+}
+
